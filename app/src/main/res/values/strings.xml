@@ -3,6 +3,14 @@
 
     <integer name="opacity">0</integer>
 
+
+    <string name="menu_11">界面1</string>
+    <string name="menu_21">界面2</string>
+    <string name="menu_31">界面3</string>
+    <string name="menu_41">界面4</string>
+    <string name="menu_51">界面5</string>
+    <string name="menu_61">界面9</string>
+    
     <string name="format_hh_mm">%02d:%02d</string>
     <string name="btn_cancel">取消</string>
     <string name="btn_not_now">回头再说</string>
