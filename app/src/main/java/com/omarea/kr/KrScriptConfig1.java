@@ -40,7 +40,7 @@ public class KrScriptConfig1 {
             configInfo.put(BEFORE_START_SH, BEFORE_START_SH_DEFAULT);
 
             try {
-                String fileName = "kr-script.conf";
+                String fileName = "kr-script1.conf";
                 InputStream inputStream = context.getAssets().open(fileName);
                 byte[] bytes = new byte[inputStream.available()];
                 inputStream.read(bytes);
