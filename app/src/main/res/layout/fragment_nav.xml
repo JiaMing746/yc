@@ -190,39 +190,39 @@
                 android:id="@+id/nav_1"
                 style="@style/nav_item_wrap"
                 app:drawable="@drawable/ic_menu_addon"
-                app:text="@string/menu_xposed_app" />
+                app:text="@string/menu_11" />
 
             <com.omarea.ui.NavItem
                 android:id="@+id/nav_2"
                 style="@style/nav_item_wrap_right"
                 app:drawable="@drawable/ic_menu_addon"
-                app:text="@string/menu_xposed_global" />
+                app:text="@string/menu_21" />
                 
             <com.omarea.ui.NavItem
                 android:id="@+id/nav_3"
                 style="@style/nav_item_wrap"
                 app:drawable="@drawable/ic_menu_addon"
-                app:text="@string/menu_xposed_app" />
+                app:text="@string/menu_31" />
 
 
             <com.omarea.ui.NavItem
                 android:id="@+id/nav_4"
                 style="@style/nav_item_wrap_right"
                 app:drawable="@drawable/ic_menu_addon"
-                app:text="@string/menu_xposed_global" />
+                app:text="@string/menu_41" />
                 
             <com.omarea.ui.NavItem
                 android:id="@+id/nav_5"
                 style="@style/nav_item_wrap"
                 app:drawable="@drawable/ic_menu_addon"
-                app:text="@string/menu_xposed_app" />
+                app:text="@string/menu_51" />
 
 
             <com.omarea.ui.NavItem
                 android:id="@+id/nav_6"
                 style="@style/nav_item_wrap_right"
                 app:drawable="@drawable/ic_menu_addon"
-                app:text="@string/menu_xposed_global" />
+                app:text="@string/menu_61" />
         </GridLayout>
 
     </LinearLayout>
