@@ -188,7 +188,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     val activity = activity!!
                     krScriptConfig1.pageListConfig?.run {
                         OpenPageHelper(activity).openPage(this.apply {
-                            title = getString(R.string.menu_additional)
+                            title = getString(R.string.menu_11)
                         })
                     }
                     return
@@ -199,7 +199,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     val activity = activity!!
                     krScriptConfig2.pageListConfig?.run {
                         OpenPageHelper(activity).openPage(this.apply {
-                            title = getString(R.string.menu_additional)
+                            title = getString(R.string.menu_21)
                         })
                     }
                     return
@@ -210,7 +210,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     val activity = activity!!
                     krScriptConfig3.pageListConfig?.run {
                         OpenPageHelper(activity).openPage(this.apply {
-                            title = getString(R.string.menu_additional)
+                            title = getString(R.string.menu_31)
                         })
                     }
                     return
@@ -221,7 +221,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     val activity = activity!!
                     krScriptConfig4.pageListConfig?.run {
                         OpenPageHelper(activity).openPage(this.apply {
-                            title = getString(R.string.menu_additional)
+                            title = getString(R.string.menu_41)
                         })
                     }
                     return
@@ -232,7 +232,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     val activity = activity!!
                     krScriptConfig5.pageListConfig?.run {
                         OpenPageHelper(activity).openPage(this.apply {
-                            title = getString(R.string.menu_additional)
+                            title = getString(R.string.menu_51)
                         })
                     }
                     return
@@ -243,7 +243,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     val activity = activity!!
                     krScriptConfig6.pageListConfig?.run {
                         OpenPageHelper(activity).openPage(this.apply {
-                            title = getString(R.string.menu_additional)
+                            title = getString(R.string.menu_61)
                         })
                     }
                     return
