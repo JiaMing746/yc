@@ -105,12 +105,9 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     return
                 }
                 R.id.nav_img -> {
-                    if (BackupRestoreUtils.isSupport()) {
                         val intent = Intent(context, ActivityImg::class.java)
                         startActivity(intent)
-                    } else {
-                        Toast.makeText(context, "此功能不支持你的手机", Toast.LENGTH_SHORT).show()
-                    }
+                    
                     return
                 }
                 R.id.nav_battery_stats -> {
