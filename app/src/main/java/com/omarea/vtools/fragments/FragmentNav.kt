@@ -16,6 +16,12 @@ import com.omarea.Scene
 import com.omarea.common.ui.DialogHelper
 import com.omarea.common.ui.ThemeMode
 import com.omarea.kr.KrScriptConfig
+import com.omarea.kr.KrScriptConfig1
+import com.omarea.kr.KrScriptConfig2
+import com.omarea.kr.KrScriptConfig3
+import com.omarea.kr.KrScriptConfig4
+import com.omarea.kr.KrScriptConfig5
+import com.omarea.kr.KrScriptConfig6
 import com.omarea.library.shell.BatteryUtils
 import com.omarea.permissions.CheckRootStatus
 import com.omarea.shell_utils.BackupRestoreUtils
