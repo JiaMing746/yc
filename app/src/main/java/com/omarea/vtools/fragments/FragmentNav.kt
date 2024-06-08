@@ -176,6 +176,72 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     }
                     return
                 }
+
+                R.id.nav_1 -> {
+                    val krScriptConfig1 = KrScriptConfig1().init(context!!)
+                    val activity = activity!!
+                    krScriptConfig1.pageListConfig?.run {
+                        OpenPageHelper(activity).openPage(this.apply {
+                            title = getString(R.string.menu_additional)
+                        })
+                    }
+                    return
+                }
+
+                R.id.nav_2 -> {
+                    val krScriptConfig2 = KrScriptConfig2().init(context!!)
+                    val activity = activity!!
+                    krScriptConfig2.pageListConfig?.run {
+                        OpenPageHelper(activity).openPage(this.apply {
+                            title = getString(R.string.menu_additional)
+                        })
+                    }
+                    return
+                }
+
+                R.id.nav_3 -> {
+                    val krScriptConfig3 = KrScriptConfig3().init(context!!)
+                    val activity = activity!!
+                    krScriptConfig3.pageListConfig?.run {
+                        OpenPageHelper(activity).openPage(this.apply {
+                            title = getString(R.string.menu_additional)
+                        })
+                    }
+                    return
+                }
+
+                R.id.nav_4 -> {
+                    val krScriptConfig4 = KrScriptConfig4().init(context!!)
+                    val activity = activity!!
+                    krScriptConfig4.pageListConfig?.run {
+                        OpenPageHelper(activity).openPage(this.apply {
+                            title = getString(R.string.menu_additional)
+                        })
+                    }
+                    return
+                }
+
+                R.id.nav_5 -> {
+                    val krScriptConfig5 = KrScriptConfig5().init(context!!)
+                    val activity = activity!!
+                    krScriptConfig5.pageListConfig?.run {
+                        OpenPageHelper(activity).openPage(this.apply {
+                            title = getString(R.string.menu_additional)
+                        })
+                    }
+                    return
+                }
+
+                R.id.nav_6 -> {
+                    val krScriptConfig6 = KrScriptConfig6().init(context!!)
+                    val activity = activity!!
+                    krScriptConfig6.pageListConfig?.run {
+                        OpenPageHelper(activity).openPage(this.apply {
+                            title = getString(R.string.menu_additional)
+                        })
+                    }
+                    return
+                }
                 else -> {}
             }
         }
