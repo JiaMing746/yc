@@ -142,6 +142,8 @@ class ActivityMain : ActivityBase() {
             FragmentNotRoot()
         }))
         tabIconHelper2.newTabSpec(getString(R.string.app_tuner), getDrawable(R.drawable.app_settings)!!, FragmentCpuModes())
+        
+        tabIconHelper2.newTabSpec(getString(R.string.app_donate), getDrawable(R.drawable.app_like)!!, FragmentDonate())
         tab_content.adapter = tabIconHelper2.adapter
         tab_list.getTabAt(1)?.select() // 默认选中第二页
 
