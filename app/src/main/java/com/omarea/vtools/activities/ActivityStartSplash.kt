@@ -16,10 +16,18 @@ import android.view.View
 import android.widget.TextView
 import com.omarea.common.shell.ShellExecutor
 import com.omarea.krscript.executor.ScriptEnvironmen
-import com.projectkr.shell.permissions.CheckRootStatus
+import com.omarea.common.ui.DialogHelper
+import com.omarea.common.ui.ThemeMode
+import com.omarea.library.permissions.GeneralPermissions
+import com.omarea.permissions.Busybox
+import com.omarea.permissions.CheckRootStatus
+import com.omarea.permissions.WriteSettings
+import com.omarea.store.SpfConfig
+import com.omarea.kr.KrScriptConfig
 import kotlinx.android.synthetic.main.activity_splash.*
 import java.io.BufferedReader
 import java.io.DataOutputStream
+import com.omarea.vtools.R
 
 class ActivityStartSplash : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -153,7 +161,7 @@ class ActivityStartSplash : Activity() {
             actionPage.putExtras(this.intent)
             startActivity(actionPage)
         } else {
-            val home = Intent(this.applicationContext, MainActivity::class.java)
+            val home = Intent(this.applicationContext, ActivityStartSplash::class.java)
             startActivity(home)
         }
         finish()
