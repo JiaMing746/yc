@@ -31,23 +31,7 @@ class FragmentDonate : androidx.fragment.app.Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        pay_paypal.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/duduski")))
-        }
-        pay_alipay.setOnClickListener {
-            AlipayDonate(context!!).jumpAlipay()
-        }
-        pay_wxpay.setOnClickListener {
-            /*
-            try {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("weixin://dl/business/?ticket=wxp://f2f0YqS-OUviH9sQNUDgXJhOP3fld3htEqqO")))
-            } catch (ex: Exception) {
-                Toast.makeText(context!!, "暂不支持此方式！", Toast.LENGTH_SHORT).show()
-            }
-            */
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://vtools.omarea.com/")))
-            Toast.makeText(context!!, "暂不支持直接调起，请保存收款码然后使用微信扫码（在扫一扫界面从相册选择图片）！", Toast.LENGTH_SHORT).show()
-        }
+        
 
         bindClickEvent(nav_gesture)
         bindClickEvent(nav_filter)
@@ -67,35 +51,7 @@ class FragmentDonate : androidx.fragment.app.Fragment(), View.OnClickListener {
             if (!CheckRootStatus.lastCheckResult && "root".equals(getTag())) {
                 Toast.makeText(context, "没有获得ROOT权限，不能使用本功能", Toast.LENGTH_SHORT).show()
                 return
-            }
-
-            when (id) {
-                R.id.nav_gesture -> {
-                    tryOpenApp("com.omarea.gesture")
-                    return
-                }
-                R.id.nav_filter -> {
-                    tryOpenApp("com.omarea.filter")
-                    return
-                }
-                R.id.nav_qq -> {
-                    val key = "6ffXO4eTZVN0eeKmp-2XClxizwIc7UIu" //""e-XL2In7CgIpeK_sG75s-vAiu7n5DnlS"
-                    val intent = Intent()
-                    intent.data = Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D$key")
-                    // 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，返回手Q主界面，不设置，按返回会返回到呼起产品界面    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    return try {
-                        startActivity(intent)
-                    } catch (e: Exception) {
-                    }
-                }
-                R.id.nav_share -> {
-                    val sendIntent = Intent()
-                    sendIntent.action = Intent.ACTION_SEND
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_link))
-                    sendIntent.type = "text/plain"
-                    startActivity(sendIntent)
-                }
-            }
+               }
         }
     }
 
@@ -131,22 +87,7 @@ class FragmentDonate : androidx.fragment.app.Fragment(), View.OnClickListener {
         } catch (ex: java.lang.Exception) {
         }
 
-        openUrl("https://www.coolapk.com/apk/" + packageName)
-        /*
-            Uri uri = Uri.parse("market://details?id=" + appPkg);
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            if (marketPkg != null) {// 如果没给市场的包名，则系统会弹出市场的列表让你进行选择。
-                intent.setPackage(marketPkg);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                return false;
-            }
-        */
+        openUrl("http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=DnuSkhJ_x1lHKBxfi9GtbUijy43awAPW&authKey=RUtBy2exLLjSAM0ceIQQQP5yDusp91dAY%2BxTJDxxgvClkXBFDuFrL7XgzrFijIZi&noverify=0&group_code=813807778" )
     }
 
     private fun openUrl(link: String) {
