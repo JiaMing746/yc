@@ -235,9 +235,71 @@ class ActivityStartSplash : Activity() {
             actionPage.putExtras(this.intent)
             startActivity(actionPage)
         } else {
-            val home = Intent(this.applicationContext, MainActivity::class.java)
+            val home = Intent(this.applicationContext, ActivityMain::class.java)
             startActivity(home)
         }
         finish()
+    }
+
+private class UpdateLogViewHandler(private var logView: TextView, private val onExit: Runnable) {
+        private val handler = Handler(Looper.getMainLooper())
+        private var notificationMessageRows = ArrayList<String>()
+        private var someIgnored = false
+
+        fun onLogOutput(log: String) {
+            handler.post {
+                synchronized(notificationMessageRows) {
+                    if (notificationMessageRows.size > 6) {
+                        notificationMessageRows.remove(notificationMessageRows.first())
+                        someIgnored = true
+                    }
+                    notificationMessageRows.add(log)
+                    logView.setText(notificationMessageRows.joinToString("\n", if (someIgnored) "……\n" else "").trim())
+                }
+            }
+        }
+
+        fun onExit() {
+            handler.post { onExit.run() }
+        }
+}
+    
+    private class BeforeStartThread(private var context: Context, private val config: KrScriptConfig, private var updateLogViewHandler: UpdateLogViewHandler) : Thread() {
+        val params = config.getVariables();
+
+        override fun run() {
+            try {
+                val process = if (CheckRootStatus.lastCheckResult) ShellExecutor.getSuperUserRuntime() else ShellExecutor.getRuntime()
+                if (process != null) {
+                    val outputStream = DataOutputStream(process.outputStream)
+
+                    ScriptEnvironmen.executeShell(context, outputStream, config.beforeStartSh, params, null, "pio-splash")
+
+                    StreamReadThread(process.inputStream.bufferedReader(), updateLogViewHandler).start()
+                    StreamReadThread(process.errorStream.bufferedReader(), updateLogViewHandler).start()
+
+                    process.waitFor()
+                    updateLogViewHandler.onExit()
+                } else {
+                    updateLogViewHandler.onExit()
+                }
+            } catch (ex: Exception) {
+                updateLogViewHandler.onExit()
+            }
+        }
+    }
+
+    private class StreamReadThread(private var reader: BufferedReader, private var updateLogViewHandler: UpdateLogViewHandler) : Thread() {
+        override fun run() {
+            var line: String? = ""
+            while (true) {
+                line = reader.readLine()
+                if (line == null) {
+                    break
+                } else {
+                    updateLogViewHandler.onLogOutput(line)
+                }
+            }
+        }
     }
 }
