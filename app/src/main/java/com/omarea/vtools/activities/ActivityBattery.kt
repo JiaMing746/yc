@@ -7,9 +7,6 @@ import android.os.BatteryManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.AbsoluteSizeSpan
 import android.view.View
 import android.widget.*
 import com.omarea.Scene
@@ -52,10 +49,12 @@ class ActivityBattery : ActivityBase() {
             }
         }
 
-        ResumeCharge = "sh " + FileWrite.writePrivateShellFile("addin/resume_charge.sh", "addin/resume_charge.sh", this)
-        spf = getSharedPreferences(SpfConfig.CHARGE_SPF, Context.MODE_PRIVATE)
-        qcSettingSuupport = batteryUtils.qcSettingSupport()
-        pdSettingSupport = batteryUtils.pdSupported()
+        val ResumeCharge = "sh " + FileWrite.writePrivateShellFile("addin/resume_charge.sh", "addin/resume_charge.sh", this)
+        val spf = getSharedPreferences(SpfConfig.CHARGE_SPF, Context.MODE_PRIVATE)
+        val batteryUtils = BatteryUtils(this)
+
+        val qcSettingSuupport = batteryUtils.qcSettingSupport()
+        val pdSettingSupport = batteryUtils.pdSupported()
 
         settings_qc.setOnClickListener {
             val checked = (it as CompoundButton).isChecked
@@ -208,10 +207,10 @@ class ActivityBattery : ActivityBase() {
         }
         handler.postDelayed(runnable, 2000)
 
-        battery_temp.setText(String.format(Locale.getDefault(), "%.1f°C", bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_TEMPERATURE) / 10f))
+        battery_temp.text = String.format(Locale.getDefault(), "%.1f°C", bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_TEMPERATURE) / 10f)
         val batteryInfo = batteryUtils.getBatteryInfo()
-        battery_technology.setText(batteryInfo.technology)
-        battery_health.setText(batteryUtils.getBatteryHealth(batteryInfo.health))
+        battery_technology.text = batteryInfo.technology
+        battery_health.text = batteryUtils.getBatteryHealth(batteryInfo.health)
         battery_charge_full.text = String.format(Locale.getDefault(), "%d", batteryUtils.getChargeFull())
 
         battery_forgery_ratio.setOnClickListener { batteryForgeryRatio() }
@@ -222,7 +221,7 @@ class ActivityBattery : ActivityBase() {
         DialogNumberInput(this).showDialog(object : DialogNumberInput.DialogNumberInputRequest {
             override var min: Int = -1
             override var max: Int = 100
-            override var default: Int = batteryUtils.getCpacity().toInt()  // 确保这个值是 Int 类型
+            override var default: Int = batteryUtils.getCapacity().toInt() // Ensure this value is Int
 
             override fun onApply(value: Int) {
                 batteryUtils.setCapacity(value)
@@ -235,7 +234,7 @@ class ActivityBattery : ActivityBase() {
         DialogNumberInput(this).showDialog(object : DialogNumberInput.DialogNumberInputRequest {
             override var min: Int = 1000
             override var max: Int = 20000
-            override var default: Int = batteryUtils.getChargeFull().toInt()  // 确保这个值是 Int 类型
+            override var default: Int = batteryUtils.getChargeFull().toInt() // Ensure this value is Int
 
             override fun onApply(value: Int) {
                 batteryUtils.setChargeFull(value)
@@ -257,5 +256,11 @@ class ActivityBattery : ActivityBase() {
 
     private fun notifyConfigChanged() {
         EventBus.publish(EventType.CONFIG_CHANGED)
+    }
+
+    private fun minutes2Str(minutes: Int): String {
+        val hours = minutes / 60
+        val mins = minutes % 60
+        return String.format(Locale.getDefault(), "%02d:%02d", hours, mins)
     }
 }
