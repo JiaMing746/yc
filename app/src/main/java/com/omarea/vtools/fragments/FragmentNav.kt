@@ -140,19 +140,6 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     startActivity(intent)
                     return
                 }
-                R.id.nav_xposed_app -> {
-                    xposedCheck {
-                        val intent = Intent(context, ActivityAppXposedConfig::class.java)
-                        startActivity(intent)
-                    }
-                    return
-                }
-                R.id.nav_xposed_global -> {
-                    xposedCheck {
-                        DialogXposedGlobalConfig(activity!!).show()
-                    }
-                    return
-                }
                 R.id.nav_processes -> {
                     val intent = Intent(context, ActivityProcess::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
