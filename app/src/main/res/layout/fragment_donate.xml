@@ -12,58 +12,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-            
+
+        <LinearLayout
+            android:id="@+id/pay_alipay"
+            style="@style/ListCardItemClickable">
 
             <TextView
-                style="@style/textSmall"
-                android:layout_width="match_parent"
+                style="@style/textTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="讨论、分享" />
+                android:text="分享软件"
+                android:textColor="?android:colorAccent" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/pay_wxpay"
+            style="@style/ListCardItemClickable">
 
-            <LinearLayout
-                android:id="@+id/nav_share"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:src="@drawable/share_logo"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
-
-                <TextView
-                    android:text="@string/menu_share"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/nav_qq"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:src="@drawable/qq_logo"
-                    android:layout_margin="1dp"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp" />
-
-                <TextView
-                    android:text="@string/menu_qq"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+            <TextView
+                style="@style/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加入QQ群"
+                android:textColor="?android:colorAccent" />
+        </LinearLayout>
         
-    </LinearLayout>
 </com.omarea.common.ui.OverScrollView>
