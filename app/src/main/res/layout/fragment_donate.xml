@@ -36,5 +36,6 @@
                 android:text="加入QQ群"
                 android:textColor="?android:colorAccent" />
         </LinearLayout>
+        </LinearLayout>
         
 </com.omarea.common.ui.OverScrollView>
