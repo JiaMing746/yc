@@ -12,28 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/nav_filter"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:src="@drawable/filter_logo"
-                    android:layout_margin="1dp"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp" />
-
-                <TextView
-                    android:text="@string/menu_filter"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
+            
 
             <TextView
                 style="@style/textSmall"
@@ -85,6 +64,6 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-        </LinearLayout>
+        
     </LinearLayout>
 </com.omarea.common.ui.OverScrollView>
