@@ -142,6 +142,14 @@
                 android:tag="root"
                 app:drawable="@drawable/ic_menu_magisk"
                 app:text="@string/menu_modules" />
+
+         <com.omarea.ui.NavItem
+                android:id="@+id/nav_freeze"
+                style="@style/nav_item_wrap_right"
+                android:tag="root"
+                app:drawable="@drawable/ic_menu_freeze"
+                app:text="@string/menu_freeze" />
+
         </GridLayout>
 
         <TextView
