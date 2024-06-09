@@ -216,11 +216,27 @@ class ActivityStartSplash : Activity() {
      * 启动完成
      */
     private fun startToFinish() {
-        start_state_text.text = "Completed!"
+        start_state_text.text = getString(R.string.pop_started)
 
-        val intent = Intent(this.applicationContext, ActivityMain::class.java)
-        startActivity(intent)
-        finished = true
+        val config = KrScriptConfig().init(this)
+        if (config.beforeStartSh.isNotEmpty()) {
+            BeforeStartThread(this, config, UpdateLogViewHandler(start_state_text, Runnable {
+                gotoHome()
+            })).start()
+        } else {
+            gotoHome()
+        }
+    }
+
+    private fun gotoHome() {
+        if (this.intent != null && this.intent.hasExtra("JumpActionPage") && this.intent.getBooleanExtra("JumpActionPage", false)) {
+            val actionPage = Intent(this.applicationContext, ActionPage::class.java)
+            actionPage.putExtras(this.intent)
+            startActivity(actionPage)
+        } else {
+            val home = Intent(this.applicationContext, MainActivity::class.java)
+            startActivity(home)
+        }
         finish()
     }
 }
