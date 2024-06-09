@@ -11,6 +11,7 @@
     <string name="menu_51">界面5</string>
     <string name="menu_61">界面9</string>
     <string name="pio_starting">PIO·STARTING</string>
+      <string name="pop_started">启动完成！</string>
     
     <string name="format_hh_mm">%02d:%02d</string>
     <string name="btn_cancel">取消</string>
