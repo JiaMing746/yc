@@ -167,6 +167,13 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     return
                 }
 
+
+                R.id.nav_dc -> {
+                    val intent = Intent(context, ActivityBattery::class.java)
+                    startActivity(intent)
+                    return
+                }
+                
                 R.id.nav_1 -> {
                     val krScriptConfig1 = KrScriptConfig1().init(context!!)
                     val activity = activity!!
