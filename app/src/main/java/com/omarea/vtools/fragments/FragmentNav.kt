@@ -169,7 +169,8 @@ class FragmentNav : Fragment(), View.OnClickListener {
 
 
                 R.id.nav_freeze -> {
-                   val intent = Intent(context, ActivityFreezeApps::class.java)
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.setClassName("com.omarea.vtools", "com.omarea.vtools.activities.ActivityFreezeApps2")
                     startActivity(intent)
                     return
                 }
