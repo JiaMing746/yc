@@ -169,7 +169,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
 
 
                 R.id.nav_dc -> {
-                    val intent = Intent(context, ActivityBattery::class.java)
+                    val intent = Intent(context, ActivityFreezeApps::class.java)
                     startActivity(intent)
                     return
                 }
