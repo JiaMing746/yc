@@ -33,8 +33,6 @@ class FragmentDonate : androidx.fragment.app.Fragment(), View.OnClickListener {
 
         
 
-        bindClickEvent(nav_gesture)
-        bindClickEvent(nav_filter)
         bindClickEvent(nav_share)
         bindClickEvent(nav_qq)
     }
