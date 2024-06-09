@@ -28,6 +28,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
+import com.omarea.common.shell.ShellExecutor
+import com.omarea.kr.KrScriptConfig
+import com.omarea.krscript.executor.ScriptEnvironmen
+import android.os.Handler
+import android.os.Looper
+import android.widget.TextView
+import java.io.DataOutputStream
+import java.io.BufferedReader
 
 class ActivityStartSplash : Activity() {
     companion object {
